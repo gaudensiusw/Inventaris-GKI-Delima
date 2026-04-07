@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Sistem Inventaris GKI</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
         .glass-panel {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -64,7 +63,7 @@
 
         <!-- Right Column: Login Form -->
         <div class="flex justify-center lg:justify-end pr-0 lg:pr-12">
-            <div class="glass-panel w-full max-w-md rounded-[2rem] p-10 relative">
+            <div class="bg-white/95 backdrop-blur-lg border border-gray-200 shadow-xl w-full max-w-md rounded-[2rem] p-10 relative transition-all">
                 
                 <div class="flex flex-col items-center mb-8">
                     <div class="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 text-2xl mb-4">
@@ -73,6 +72,12 @@
                     <h2 class="text-2xl font-bold text-gray-900 text-center">Selamat Datang</h2>
                     <p class="text-sm text-gray-500 text-center mt-1">Silakan login untuk melanjutkan</p>
                 </div>
+
+                @if($errors->any())
+                    <div class="mb-4 p-3 bg-red-50 border border-red-200 text-red-600 text-sm rounded-xl text-center font-medium">
+                        {{ $errors->first() }}
+                    </div>
+                @endif
 
                 <form method="POST" action="{{ route('login.post') }}" class="space-y-5">
                     @csrf
@@ -100,7 +105,7 @@
                             <!-- Admin Option (Selected) -->
                             <label class="cursor-pointer relative">
                                 <input type="radio" name="role" value="admin" class="peer sr-only" checked>
-                                <div class="rounded-xl border-2 border-transparent bg-red-50 py-3 px-4 text-center peer-checked:border-red-200 peer-checked:bg-red-50 hover:bg-red-50/70 transition-all flex flex-col items-center gap-1">
+                                <div class="rounded-xl border-2 border-transparent bg-red-50 py-3 px-4 text-center peer-checked:border-red-200 peer-checked:bg-red-50 hover:bg-red-50/70 transition-all active:scale-95 flex flex-col items-center gap-1">
                                     <i class="fa-regular fa-user text-red-600 mb-1 text-lg"></i>
                                     <span class="text-sm font-semibold text-red-800">Admin</span>
                                 </div>
@@ -109,9 +114,9 @@
                             <!-- User Option -->
                             <label class="cursor-pointer relative">
                                 <input type="radio" name="role" value="user" class="peer sr-only">
-                                <div class="rounded-xl border-2 border-transparent bg-blue-50 py-3 px-4 text-center peer-checked:border-blue-500 peer-checked:bg-blue-600 peer-checked:text-white hover:bg-blue-50/70 transition-all flex flex-col items-center gap-1">
-                                    <i class="fa-regular fa-user text-blue-600 peer-checked:text-white mb-1 text-lg"></i>
-                                    <span class="text-sm font-semibold text-blue-800 peer-checked:text-white">User</span>
+                                <div class="rounded-xl border-2 border-transparent bg-blue-50 py-3 px-4 text-center peer-checked:border-blue-200 peer-checked:bg-blue-100 hover:bg-blue-50/70 transition-all active:scale-95 flex flex-col items-center gap-1">
+                                    <i class="fa-regular fa-user text-blue-600 mb-1 text-lg"></i>
+                                    <span class="text-sm font-semibold text-blue-800">User</span>
                                 </div>
                             </label>
                         </div>

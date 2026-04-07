@@ -6,7 +6,7 @@
     <!-- KPI Cards Row -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Card 1: Total Barang -->
-        <div class="glass-card rounded-2xl p-6 border-l-4 border-blue-500 relative overflow-hidden group">
+        <div class="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow rounded-2xl p-6 border-l-4 border-l-blue-500 relative overflow-hidden group">
             <div class="flex justify-between items-start">
                 <div>
                     <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Total Barang</p>
@@ -20,7 +20,7 @@
         </div>
 
         <!-- Card 2: Estimasi Nilai Aset -->
-        <div class="glass-card rounded-2xl p-6 border-l-4 border-green-500 relative overflow-hidden group">
+        <div class="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow rounded-2xl p-6 border-l-4 border-l-green-500 relative overflow-hidden group">
             <div class="flex justify-between items-start">
                 <div>
                     <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Estimasi Nilai Aset</p>
@@ -34,7 +34,7 @@
         </div>
 
         <!-- Card 3: Kondisi Baik -->
-        <div class="glass-card rounded-2xl p-6 border-l-4 border-teal-500 relative overflow-hidden group">
+        <div class="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow rounded-2xl p-6 border-l-4 border-l-teal-500 relative overflow-hidden group">
             <div class="flex justify-between items-start">
                 <div>
                     <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Kondisi Baik</p>
@@ -48,7 +48,7 @@
         </div>
 
         <!-- Card 4: Perlu Perbaikan -->
-        <div class="glass-card rounded-2xl p-6 border-l-4 border-orange-500 relative overflow-hidden group">
+        <div class="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow rounded-2xl p-6 border-l-4 border-l-orange-500 relative overflow-hidden group">
             <div class="flex justify-between items-start">
                 <div>
                     <p class="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-1">Perlu Perbaikan</p>
@@ -65,7 +65,7 @@
     <!-- Charts Row -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <!-- Pie Chart: Distribusi Kategori -->
-        <div class="glass-card rounded-2xl p-6 lg:col-span-1 flex flex-col">
+        <div class="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow rounded-2xl p-6 lg:col-span-1 flex flex-col">
             <h3 class="text-lg font-bold text-gray-800 leading-tight">Distribusi Kategori</h3>
             <p class="text-xs text-gray-500 mb-6">Berdasarkan 4 kategori terdaftar</p>
             <div class="flex-1 flex aspect-square justify-center items-center relative w-full pb-4">
@@ -89,7 +89,7 @@
         </div>
 
         <!-- Bar Chart: Barang per Lokasi -->
-        <div class="glass-card rounded-2xl p-6 lg:col-span-2 flex flex-col">
+        <div class="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow rounded-2xl p-6 lg:col-span-2 flex flex-col">
             <div class="flex justify-between items-start mb-6">
                 <div>
                     <h3 class="text-lg font-bold text-gray-800 leading-tight">Barang per Lokasi</h3>
@@ -106,7 +106,7 @@
     <!-- Bottom Row -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <!-- Aktivitas Terbaru -->
-        <div class="glass-card rounded-2xl p-6">
+        <div class="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow rounded-2xl p-6">
             <div class="flex justify-between items-center mb-6">
                 <div>
                     <h3 class="text-lg font-bold text-gray-800 leading-tight">Aktivitas Terbaru</h3>
@@ -146,15 +146,15 @@
         </div>
 
         <!-- Status Kondisi Barang -->
-        <div class="glass-card rounded-2xl p-6">
+        <div class="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow rounded-2xl p-6">
             <h3 class="text-lg font-bold text-gray-800 leading-tight">Status Kondisi Barang</h3>
             <p class="text-xs text-gray-500 mb-6">Ringkasan semua kondisi inventaris</p>
 
             <div class="grid grid-cols-2 gap-4">
                 <!-- Baik -->
-                <div class="border border-green-200 bg-green-50/50 rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
+                <div class="border border-green-400 bg-green-50 shadow-sm rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-white text-green-500 flex items-center justify-center border border-green-100"><i class="fa-solid fa-check"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-white text-green-500 flex items-center justify-center border border-green-200"><i class="fa-solid fa-check"></i></div>
                         <div>
                             <h4 class="text-xl font-bold text-green-800 leading-none mb-1">{{ $statusKondisi['baik'] }}</h4>
                             <p class="text-xs font-medium text-green-600">Baik</p>
@@ -163,9 +163,9 @@
                 </div>
 
                 <!-- Dipinjam -->
-                <div class="border border-blue-200 bg-blue-50/50 rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
+                <div class="border border-blue-400 bg-blue-50 shadow-sm rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-white text-blue-500 flex items-center justify-center border border-blue-100"><i class="fa-solid fa-people-carry-box"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-white text-blue-500 flex items-center justify-center border border-blue-200"><i class="fa-solid fa-people-carry-box"></i></div>
                         <div>
                             <h4 class="text-xl font-bold text-blue-800 leading-none mb-1">{{ $statusKondisi['dipinjam'] }}</h4>
                             <p class="text-xs font-medium text-blue-600">Dipinjam</p>
@@ -174,9 +174,9 @@
                 </div>
 
                 <!-- Diperbaiki -->
-                <div class="border border-yellow-200 bg-yellow-50/50 rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
+                <div class="border border-yellow-400 bg-yellow-50 shadow-sm rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-white text-yellow-500 flex items-center justify-center border border-yellow-100"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-white text-yellow-500 flex items-center justify-center border border-yellow-200"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                         <div>
                             <h4 class="text-xl font-bold text-yellow-800 leading-none mb-1">{{ $statusKondisi['diperbaiki'] }}</h4>
                             <p class="text-xs font-medium text-yellow-600">Diperbaiki</p>
@@ -185,9 +185,9 @@
                 </div>
 
                 <!-- Rusak Ringan -->
-                <div class="border border-orange-200 bg-orange-50/50 rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
+                <div class="border border-orange-400 bg-orange-50 shadow-sm rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-white text-orange-500 flex items-center justify-center border border-orange-100"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-white text-orange-500 flex items-center justify-center border border-orange-200"><i class="fa-solid fa-triangle-exclamation"></i></div>
                         <div>
                             <h4 class="text-xl font-bold text-orange-800 leading-none mb-1">{{ $statusKondisi['rusak_ringan'] }}</h4>
                             <p class="text-xs font-medium text-orange-600">Rusak Ringan</p>
@@ -196,9 +196,9 @@
                 </div>
 
                 <!-- Rusak Berat -->
-                <div class="border border-red-200 bg-red-50/50 rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
+                <div class="border border-red-400 bg-red-50 shadow-sm rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-white text-red-500 flex items-center justify-center border border-red-100"><i class="fa-solid fa-ban"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-white text-red-500 flex items-center justify-center border border-red-200"><i class="fa-solid fa-ban"></i></div>
                         <div>
                             <h4 class="text-xl font-bold text-red-800 leading-none mb-1">{{ $statusKondisi['rusak_berat'] }}</h4>
                             <p class="text-xs font-medium text-red-600">Rusak Berat</p>
@@ -207,9 +207,9 @@
                 </div>
 
                 <!-- Hilang -->
-                <div class="border border-purple-200 bg-purple-50/50 rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
+                <div class="border border-purple-400 bg-purple-50 shadow-sm rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-white text-purple-500 flex items-center justify-center border border-purple-100"><i class="fa-solid fa-question"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-white text-purple-500 flex items-center justify-center border border-purple-200"><i class="fa-solid fa-question"></i></div>
                         <div>
                             <h4 class="text-xl font-bold text-purple-800 leading-none mb-1">{{ $statusKondisi['hilang'] }}</h4>
                             <p class="text-xs font-medium text-purple-600">Hilang</p>
@@ -218,9 +218,9 @@
                 </div>
 
                 <!-- Tidak Digunakan -->
-                <div class="border border-gray-200 bg-gray-50/50 rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
+                <div class="border border-gray-400 bg-gray-50 shadow-sm rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-white text-gray-500 flex items-center justify-center border border-gray-100"><i class="fa-solid fa-folder-closed"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-white text-gray-500 flex items-center justify-center border border-gray-200"><i class="fa-solid fa-folder-closed"></i></div>
                         <div>
                             <h4 class="text-xl font-bold text-gray-800 leading-none mb-1">{{ $statusKondisi['tidak_digunakan'] }}</h4>
                             <p class="text-xs font-medium text-gray-600">Tidak Digunakan</p>
@@ -229,9 +229,9 @@
                 </div>
 
                 <!-- Penghapusan -->
-                <div class="border border-slate-200 bg-slate-50/50 rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
+                <div class="border border-slate-400 bg-slate-50 shadow-sm rounded-xl p-4 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-white text-slate-500 flex items-center justify-center border border-slate-100"><i class="fa-solid fa-trash-can"></i></div>
+                        <div class="w-8 h-8 rounded-full bg-white text-slate-500 flex items-center justify-center border border-slate-200"><i class="fa-solid fa-trash-can"></i></div>
                         <div>
                             <h4 class="text-xl font-bold text-slate-800 leading-none mb-1">{{ $statusKondisi['penghapusan'] }}</h4>
                             <p class="text-xs font-medium text-slate-600">Penghapusan</p>

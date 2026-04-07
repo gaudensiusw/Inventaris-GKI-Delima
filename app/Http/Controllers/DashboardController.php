@@ -14,6 +14,15 @@ class DashboardController extends Controller
         $kondisiBaik = \App\Models\Item::where('condition', 'Baik')->count();
         $perluPerbaikan = \App\Models\Item::whereIn('condition', ['Diperbaiki', 'Rusak Ringan', 'Rusak Berat'])->count();
 
+        // Tambahkan kalkulasi persentase dinamis
+        $totalBulanLalu = \App\Models\Item::where('acquired_at', '<', now()->startOfMonth())->count();
+        $pertumbuhanBarang = $totalBulanLalu > 0 
+            ? round((($totalBarang - $totalBulanLalu) / $totalBulanLalu) * 100) 
+            : ($totalBarang > 0 ? 100 : 0);
+
+        $persenKondisiBaik = $totalBarang > 0 ? round(($kondisiBaik / $totalBarang) * 100) : 0;
+        $persenPerluPerbaikan = $totalBarang > 0 ? round(($perluPerbaikan / $totalBarang) * 100) : 0;
+
         // Data Chart Kategori - Count item per category
         $categories = \App\Models\Category::withCount('items')->get();
         $chartKategori = [
@@ -67,6 +76,7 @@ class DashboardController extends Controller
 
         return view('dashboard', compact(
             'totalBarang', 'estimasiAset', 'kondisiBaik', 'perluPerbaikan',
+            'pertumbuhanBarang', 'persenKondisiBaik', 'persenPerluPerbaikan',
             'chartKategori', 'chartLokasi', 'aktivitasTerbaru', 'statusKondisi'
         ));
     }

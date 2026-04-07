@@ -13,10 +13,13 @@
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="flex h-screen overflow-hidden text-gray-800">
+<body class="flex h-screen overflow-hidden text-gray-800 bg-[#f8fafc]">
+
+    <!-- Mobile sidebar backdrop -->
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-gray-900 bg-opacity-50 z-40 hidden md:hidden transition-opacity"></div>
 
     <!-- Sidebar -->
-    <aside class="w-64 bg-[#143e2b] flex-shrink-0 flex flex-col text-gray-200">
+    <aside id="sidebar" class="w-64 bg-[#143e2b] flex-shrink-0 flex flex-col text-gray-200 fixed inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out z-50">
         <!-- Logo/Brand -->
         <div class="h-20 flex items-center px-6 border-b border-white/10">
             <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-green-900 font-bold text-xl mr-3 shadow-lg">GKI</div>
@@ -80,32 +83,69 @@
                     </button>
                 </form>
             </div>
+
+            <button id="sidebar-close" class="md:hidden w-full flex items-center justify-center px-3 py-2.5 bg-green-900 text-white rounded-lg hover:bg-green-800 mt-6 mb-4">
+                <i class="fa-solid fa-xmark mr-2"></i> Tutup Menu
+            </button>
         </nav>
     </aside>
 
     <!-- Main Content -->
-    <div class="flex-1 flex flex-col h-screen overflow-hidden bg-[#f4f7f5]">
+    <div class="flex-1 flex flex-col h-screen overflow-hidden bg-[#f4f7f5] w-full">
         <!-- Topbar -->
-        <header class="h-20 bg-white shadow-sm flex items-center justify-between px-8 z-10">
-            <div>
-                <h2 class="text-2xl font-bold text-gray-800">Dashboard</h2>
-                <p class="text-sm text-gray-500 mt-0.5">Selamat datang kembali, Admin</p>
+        <header class="h-20 bg-white shadow-sm flex items-center justify-between px-4 md:px-8 z-10 w-full">
+            <div class="flex items-center">
+                <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none mr-4">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+                <div>
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-800">Dashboard</h2>
+                    <p class="hidden sm:block text-sm text-gray-500 mt-0.5">Selamat datang kembali, Admin</p>
+                </div>
             </div>
-            <div class="flex items-center space-x-6">
-                <div class="text-sm text-gray-500 font-medium bg-gray-100 px-4 py-2 rounded-full border border-gray-200">
+            <div class="flex items-center space-x-2 md:space-x-6">
+                <div class="hidden sm:block text-sm text-gray-500 font-medium bg-gray-100 px-4 py-2 rounded-full border border-gray-200">
                     <i class="fa-regular fa-calendar mr-2"></i> Selasa, 7 April 2026
                 </div>
-                <button class="bg-[#143e2b] hover:bg-green-900 text-white px-5 py-2.5 rounded-xl font-medium transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+                <button class="bg-[#143e2b] hover:bg-green-900 text-white px-4 md:px-5 py-2 md:py-2.5 rounded-xl font-medium transition-all shadow-md hover:shadow-lg flex items-center gap-2 text-sm md:text-base">
                     <i class="fa-solid fa-qrcode"></i> Scan QR Code
                 </button>
             </div>
         </header>
 
         <!-- Page Content -->
-        <main class="flex-1 overflow-y-auto p-8">
+        <main class="flex-1 overflow-y-auto overflow-x-hidden p-4 md:p-8">
             @yield('content')
         </main>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.getElementById('sidebar');
+            const mobileMenuBtn = document.getElementById('mobile-menu-button');
+            const closeBtn = document.getElementById('sidebar-close');
+            const backdrop = document.getElementById('sidebar-backdrop');
+            
+            function openSidebar() {
+                sidebar.classList.remove('-translate-x-full');
+                backdrop.classList.remove('hidden');
+            }
+            
+            function closeSidebar() {
+                sidebar.classList.add('-translate-x-full');
+                backdrop.classList.add('hidden');
+            }
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', openSidebar);
+            }
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeSidebar);
+            }
+            if (backdrop) {
+                backdrop.addEventListener('click', closeSidebar);
+            }
+        });
+    </script>
 </body>
 </html>

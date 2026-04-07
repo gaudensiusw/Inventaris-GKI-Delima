@@ -101,26 +101,30 @@
                     <!-- Role Selection -->
                     <div class="pt-2">
                         <label class="block text-xs font-semibold text-gray-700 mb-3 uppercase tracking-wide">Pilih Role</label>
-                        <div class="grid grid-cols-2 gap-3">
-                            <!-- Admin Option (Selected) -->
-                            <label class="cursor-pointer relative">
-                                <input type="radio" name="role" value="admin" class="peer sr-only" checked>
-                                <div class="rounded-xl border-2 border-transparent bg-red-50 py-3 px-4 text-center peer-checked:border-red-200 peer-checked:bg-red-50 hover:bg-red-50/70 transition-all active:scale-95 flex flex-col items-center gap-1">
+                        <div class="relative">
+                            <input type="radio" id="role-admin" name="role" value="admin" class="sr-only" checked>
+                            <input type="radio" id="role-user" name="role" value="user" class="sr-only">
+
+                            <div class="grid grid-cols-2 gap-3 relative z-10">
+                                <!-- Admin Option -->
+                                <label id="label-admin" for="role-admin" class="cursor-pointer rounded-xl border-2 bg-red-50 py-3 px-4 text-center hover:bg-red-50/70 transition-all active:scale-95 flex flex-col items-center justify-center gap-1">
                                     <i class="fa-regular fa-user text-red-600 mb-1 text-lg"></i>
                                     <span class="text-sm font-semibold text-red-800">Admin</span>
-                                </div>
-                            </label>
-                            
-                            <!-- User Option -->
-                            <label class="cursor-pointer relative">
-                                <input type="radio" name="role" value="user" class="peer sr-only">
-                                <div class="rounded-xl border-2 border-transparent bg-blue-50 py-3 px-4 text-center peer-checked:border-blue-200 peer-checked:bg-blue-100 hover:bg-blue-50/70 transition-all active:scale-95 flex flex-col items-center gap-1">
+                                </label>
+                                
+                                <!-- User Option -->
+                                <label id="label-user" for="role-user" class="cursor-pointer rounded-xl border-2 border-transparent bg-blue-50 py-3 px-4 text-center hover:bg-blue-50/70 transition-all active:scale-95 flex flex-col items-center justify-center gap-1">
                                     <i class="fa-regular fa-user text-blue-600 mb-1 text-lg"></i>
                                     <span class="text-sm font-semibold text-blue-800">User</span>
-                                </div>
-                            </label>
+                                </label>
+                            </div>
+                            
+                            <!-- Centralized Description Box -->
+                            <div class="mt-3 h-4 flex justify-center items-center">
+                                <p id="desc-admin" class="text-[11px] text-gray-500 animate-[fadeIn_0.2s_ease-out] text-center w-full" style="display: none;">Akses penuh semua fitur</p>
+                                <p id="desc-user" class="text-[11px] text-gray-500 animate-[fadeIn_0.2s_ease-out] text-center w-full" style="display: none;">View & Print - Lihat dan cetak</p>
+                            </div>
                         </div>
-                        <p class="text-[10px] text-center text-gray-400 mt-3">View & Print - Lihat dan cetak</p>
                     </div>
 
                     <!-- Submit -->
@@ -138,5 +142,47 @@
 
     </div>
 
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const roleAdmin = document.getElementById('role-admin');
+            const roleUser = document.getElementById('role-user');
+            
+            const labelAdmin = document.getElementById('label-admin');
+            const labelUser = document.getElementById('label-user');
+            
+            const descAdmin = document.getElementById('desc-admin');
+            const descUser = document.getElementById('desc-user');
+            
+            function updateRoleUI() {
+                if (roleAdmin.checked) {
+                    labelAdmin.classList.add('border-red-200');
+                    labelAdmin.classList.remove('border-transparent');
+                    
+                    labelUser.classList.add('border-transparent');
+                    labelUser.classList.remove('border-blue-200', 'bg-blue-100');
+                    
+                    descAdmin.style.display = 'block';
+                    descUser.style.display = 'none';
+                } else if (roleUser.checked) {
+                    labelUser.classList.add('border-blue-200', 'bg-blue-100');
+                    labelUser.classList.remove('border-transparent');
+                    
+                    labelAdmin.classList.add('border-transparent');
+                    labelAdmin.classList.remove('border-red-200');
+                    
+                    descUser.style.display = 'block';
+                    descAdmin.style.display = 'none';
+                }
+            }
+            
+            roleAdmin.addEventListener('change', updateRoleUI);
+            roleUser.addEventListener('change', updateRoleUI);
+            
+            // Initialize on load
+            updateRoleUI();
+        });
+    </script>
 </body>
 </html>

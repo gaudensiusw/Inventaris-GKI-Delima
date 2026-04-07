@@ -16,7 +16,10 @@
                     <i class="fa-solid fa-box"></i>
                 </div>
             </div>
-            <p class="text-sm text-green-600 mt-4 font-medium"><i class="fa-solid fa-arrow-trend-up mr-1"></i> +12% dari bulan lalu</p>
+            <p class="text-sm {{ $pertumbuhanBarang >= 0 ? 'text-green-600' : 'text-red-500' }} mt-4 font-medium">
+                <i class="fa-solid {{ $pertumbuhanBarang >= 0 ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down' }} mr-1"></i> 
+                {{ $pertumbuhanBarang >= 0 ? '+' : '' }}{{ $pertumbuhanBarang }}% dari bulan lalu
+            </p>
         </div>
 
         <!-- Card 2: Estimasi Nilai Aset -->
@@ -44,7 +47,7 @@
                     <i class="fa-solid fa-check-circle"></i>
                 </div>
             </div>
-            <p class="text-sm text-teal-600 mt-4 font-medium">96% dari total barang</p>
+            <p class="text-sm text-teal-600 mt-4 font-medium">{{ $persenKondisiBaik }}% dari total barang</p>
         </div>
 
         <!-- Card 4: Perlu Perbaikan -->
@@ -58,7 +61,7 @@
                     <i class="fa-solid fa-wrench"></i>
                 </div>
             </div>
-            <p class="text-sm text-red-500 mt-4 font-medium"><i class="fa-solid fa-circle-exclamation mr-1"></i> 4% butuh perhatian</p>
+            <p class="text-sm text-red-500 mt-4 font-medium"><i class="fa-solid fa-circle-exclamation mr-1"></i> {{ $persenPerluPerbaikan }}% butuh perhatian</p>
         </div>
     </div>
 

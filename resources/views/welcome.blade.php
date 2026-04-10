@@ -85,9 +85,9 @@
                     <!-- Email -->
                     <div>
                         <label class="block text-xs font-semibold text-gray-700 mb-2 uppercase tracking-wide">Email</label>
-                        <input type="email" name="email" value="nama@gkidelima.org"
+                        <input type="email" name="email" id="email-input" value="admin@gkidelima.org"
                             class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-gray-800"
-                            placeholder="nama@gkidelima.org" required>
+                            placeholder="admin@gkidelima.org" required>
                     </div>
 
                     <!-- Password -->
@@ -155,6 +155,8 @@
             const descAdmin = document.getElementById('desc-admin');
             const descUser = document.getElementById('desc-user');
             
+            const emailInput = document.getElementById('email-input');
+            
             function updateRoleUI() {
                 if (roleAdmin.checked) {
                     labelAdmin.classList.add('border-red-200');
@@ -165,6 +167,8 @@
                     
                     descAdmin.style.display = 'block';
                     descUser.style.display = 'none';
+                    
+                    emailInput.value = 'admin@gkidelima.org';
                 } else if (roleUser.checked) {
                     labelUser.classList.add('border-blue-200', 'bg-blue-100');
                     labelUser.classList.remove('border-transparent');
@@ -174,6 +178,8 @@
                     
                     descUser.style.display = 'block';
                     descAdmin.style.display = 'none';
+                    
+                    emailInput.value = 'user@gkidelima.org';
                 }
             }
             

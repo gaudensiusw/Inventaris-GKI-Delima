@@ -18,7 +18,16 @@ class DatabaseSeeder extends Seeder
         // Seeder buat Admin (GKI)
         \App\Models\User::factory()->create([
             'name' => 'Admin GKI',
-            'email' => 'nama@gkidelima.org',
+            'email' => 'admin@gkidelima.org',
+            'role' => 'admin',
+            'password' => \Illuminate\Support\Facades\Hash::make('password'),
+        ]);
+
+        // Seeder buat User Biasa (GKI)
+        \App\Models\User::factory()->create([
+            'name' => 'User GKI',
+            'email' => 'user@gkidelima.org',
+            'role' => 'user',
             'password' => \Illuminate\Support\Facades\Hash::make('password'),
         ]);
     }

@@ -58,7 +58,7 @@ class DashboardController extends Controller
         })->toArray();
 
         // Rekapitulasi Kondisi Barang (Count by grouping)
-        $kondisiCounts = \App\Models\Item::selectRaw('condition, COUNT(*) as count')
+        $kondisiCounts = \App\Models\Item::selectRaw('`condition`, COUNT(*) as count')
                                 ->groupBy('condition')
                                 ->pluck('count', 'condition')
                                 ->toArray();
